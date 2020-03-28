@@ -7,7 +7,8 @@ class Graph:
        'b': {'a': 1}
     }
     """
-    nodes = {}
+    def __init__(self):
+        self.nodes = {}
 
     def addNode(self, nodeVal):
         if nodeVal not in self.nodes:
