@@ -35,17 +35,17 @@ class Graph:
             s += '{}:  {}\n'.format(str(node), connections)
         return s
 
+if __name__ == "__main__":
+    graph = Graph()
 
-graph = Graph()
+    graph.addNode('a')
+    graph.addNode('b')
+    print(graph)
 
-graph.addNode('a')
-graph.addNode('b')
-print(graph)
+    graph.addUndirectedEdge('a', 'b')
+    print(graph)
 
-graph.addUndirectedEdge('a', 'b')
-print(graph)
+    graph.removeUndirectedEdge('a', 'b')
+    print(graph)
 
-graph.removeUndirectedEdge('a', 'b')
-print(graph)
-
-print(graph.getAllNodes())
+    print(graph.getAllNodes())
