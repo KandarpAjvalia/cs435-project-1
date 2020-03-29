@@ -28,8 +28,9 @@ class Main:
             linkedListGraph.addUndirectedEdge(nums[i], nums[i + 1])
         return linkedListGraph
 
-m = Main
-print('3 b -------------------- Random Unweighted Graph')
-print(m.createRandomUnweightedGraph(10))
-print('3 c -------------------- Linked List Graph')
-print(m.createLinkedList(10))
+if __name__ == "__main+__":
+    m = Main
+    print('3 b -------------------- Random Unweighted Graph')
+    print(m.createRandomUnweightedGraph(10))
+    print('3 c -------------------- Linked List Graph')
+    print(m.createLinkedList(10))
