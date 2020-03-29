@@ -68,8 +68,22 @@ class GraphSearch:
         GraphSearch.BFTRecHelper(graph, path, queue, visited)
 
     @staticmethod
-    def BFSIter():
-        pass
+    def BFSIter(graph):
+        queue = []
+        path = []
+        visited = set()
+        for node in graph.nodes:
+            if node not in visited:
+                visited.add(node)
+                queue.append(node)
+                while queue:
+                    curr = queue.pop(0)
+                    path.append(curr)
+                    for nestedNode in graph.nodes[curr]:
+                        if nestedNode not in visited:
+                            visited.add(nestedNode)
+                            queue.append(nestedNode)
+        return path
 
 
 # graph = Main.createLinkedList(10)
@@ -86,4 +100,7 @@ print(GraphSearch.DFSIter(graph, 3, 0))
 print()
 print('3 f -------------------- BFT Recursive on above graph')
 print(GraphSearch.BFTRec(graph))
+print()
+print('3 g -------------------- BFT Iterative on above graph')
+print(GraphSearch.BFSIter(graph))
 print('\n')
