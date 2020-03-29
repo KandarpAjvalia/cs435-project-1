@@ -28,6 +28,17 @@ class Main:
             linkedListGraph.addUndirectedEdge(nums[i], nums[i + 1])
         return linkedListGraph
 
+    @staticmethod
+    def BFTRecLinkedList(graph):
+        from graphSearch import GraphSearch
+        return GraphSearch.BFTRec(graph)
+
+    @staticmethod
+    def BFTIterLinkedList(graph):
+        from graphSearch import GraphSearch
+        return GraphSearch.BFSIter(graph)
+
+
 if __name__ == "__main__":
     m = Main
     print('3 b -------------------- Random Unweighted Graph')
