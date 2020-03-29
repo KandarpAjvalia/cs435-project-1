@@ -34,7 +34,6 @@ class GraphSearch:
                     path.append(curr)
                     if curr == end:
                         return path
-                    # print(graph.nodes[curr])
                     for nestedNode in graph.nodes[curr]:
                         if nestedNode not in visited:
                             visited.add(nestedNode)
@@ -43,23 +42,48 @@ class GraphSearch:
         return None
 
     @staticmethod
-    def BFSRec():
-        pass
+    def BFTRec(graph):
+
+        path = []
+        queue = []
+        visited = set()
+        GraphSearch.BFTRecHelper(graph, path, queue, visited)
+        for node in graph.nodes:
+            if node not in visited:
+                visited.add(node)
+                queue.append(node)
+                GraphSearch.BFTRecHelper(graph, path, queue, visited)
+        return path
+
+    @staticmethod
+    def BFTRecHelper(graph, path, queue, visited):
+        if not queue:
+            return
+        curr = queue.pop(0)
+        path.append(curr)
+        for node in graph.nodes[curr]:
+            if node not in visited:
+                visited.add(node)
+                queue.append(node)
+        GraphSearch.BFTRecHelper(graph, path, queue, visited)
 
     @staticmethod
     def BFSIter():
         pass
 
 
-graph = Main.createLinkedList(10)
-# graph = Main.createRandomUnweightedGraph(10)
+# graph = Main.createLinkedList(10)
+graph = Main.createRandomUnweightedGraph(10)
 
 print('\nGraph representation:--------------------')
 print(graph)
 
-print('3 c -------------------- DFS Recursive on above graph')
+print('3 d -------------------- DFS Recursive on above graph')
 print(GraphSearch.DFSRec(graph, 3, 0))
 print()
-print('3 c -------------------- DFS Iterative on above graph')
+print('3 e -------------------- DFS Iterative on above graph')
 print(GraphSearch.DFSIter(graph, 3, 0))
+print()
+print('3 f -------------------- BFT Recursive on above graph')
+print(GraphSearch.BFTRec(graph))
 print('\n')
