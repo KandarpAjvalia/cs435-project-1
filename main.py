@@ -28,7 +28,7 @@ class Main:
             linkedListGraph.addUndirectedEdge(nums[i], nums[i + 1])
         return linkedListGraph
 
-if __name__ == "__main+__":
+if __name__ == "__main__":
     m = Main
     print('3 b -------------------- Random Unweighted Graph')
     print(m.createRandomUnweightedGraph(10))

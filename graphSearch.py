@@ -22,7 +22,25 @@ class GraphSearch:
 
     @staticmethod
     def DFSIter(graph, start, end):
-        pass
+        stackSim = []
+        visited = set()
+        path = [start]
+        for node in graph.nodes[start]:
+            if node not in visited:
+                visited.add(node)
+                stackSim.append(node)
+                while stackSim:
+                    curr = stackSim.pop()
+                    path.append(curr)
+                    if curr == end:
+                        return path
+                    # print(graph.nodes[curr])
+                    for nestedNode in graph.nodes[curr]:
+                        if nestedNode not in visited:
+                            visited.add(nestedNode)
+                            stackSim.append(nestedNode)
+
+        return None
 
     @staticmethod
     def BFSRec():
@@ -35,6 +53,13 @@ class GraphSearch:
 
 graph = Main.createLinkedList(10)
 # graph = Main.createRandomUnweightedGraph(10)
+
+print('\nGraph representation:--------------------')
 print(graph)
-# print(graph.nodes[1])
-print(GraphSearch.DFSRec(graph, 3, 9))
+
+print('3 c -------------------- DFS Recursive on above graph')
+print(GraphSearch.DFSRec(graph, 3, 0))
+print()
+print('3 c -------------------- DFS Iterative on above graph')
+print(GraphSearch.DFSIter(graph, 3, 0))
+print('\n')
