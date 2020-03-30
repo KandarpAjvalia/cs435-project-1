@@ -41,7 +41,10 @@ class Main:
 
 if __name__ == "__main__":
     m = Main
+    print()
     print('3 b -------------------- Random Unweighted Graph')
     print(m.createRandomUnweightedGraph(10))
+    print()
     print('3 c -------------------- Linked List Graph')
     print(m.createLinkedList(10))
+    print()

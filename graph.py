@@ -39,14 +39,20 @@ class Graph:
 if __name__ == "__main__":
     graph = Graph()
 
+    print()
+    print('3 a i -------------------- Add Nodes')
     graph.addNode('a')
     graph.addNode('b')
     print(graph)
 
+    print('3 a ii -------------------- Add Undirected Edge')
     graph.addUndirectedEdge('a', 'b')
     print(graph)
 
+    print('3 a iii -------------------- Remove Undirected Edge')
     graph.removeUndirectedEdge('a', 'b')
     print(graph)
 
+    print('3 a iv -------------------- Get All Nodes')
     print(graph.getAllNodes())
+    print()
