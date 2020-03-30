@@ -22,23 +22,20 @@ class GraphSearch:
 
     @staticmethod
     def DFSIter(graph, start, end):
-        stackSim = []
+        if start == end:
+            return [start]
+        stackSim = [start]
         visited = set()
-        path = [start]
-        for node in graph.nodes[start]:
-            if node not in visited:
-                visited.add(node)
-                stackSim.append(node)
-                while stackSim:
-                    curr = stackSim.pop()
-                    path.append(curr)
-                    if curr == end:
-                        return path
-                    for nestedNode in graph.nodes[curr]:
-                        if nestedNode not in visited:
-                            visited.add(nestedNode)
-                            stackSim.append(nestedNode)
-
+        path = []
+        while stackSim:
+            curr = stackSim.pop()
+            path.append(curr)
+            if curr == end:
+                return path
+            visited.add(curr)
+            for node in graph.nodes[curr]:
+                if node not in visited:
+                    stackSim.append(node)
         return None
 
     @staticmethod

@@ -21,8 +21,11 @@
     </li>
     <li>3 d to 3i, except 3h:<br> Run using <code>python3 graphSearch.py</code><br>
         <p align="center">
-        <img src="./images/part1/graphSearchpyImg.png" width="100%" height="100%">
-       </p><br>
+        <img src="./images/part1/graphSearchImg.png" width="100%" height="100%">
+       </p>
+       <p align="center">
+       Graph Representation and tracing paths:
+        <img src="./images/part1/graphPath.png" width="100%" height="100%">
     </li>
     <li>3 h:<br> Uncomment the recursive call lines in 
         <a href="https://github.com/KandarpAjvalia/cs435-project2/blob/master/graphSearch.py">graphSearch.py</a> 
