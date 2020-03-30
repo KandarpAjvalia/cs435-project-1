@@ -47,10 +47,10 @@ if __name__ == "__main__":
     graph.addDirectedEdge('a', 'b')
     print(graph)
 
-    print('3 a iii -------------------- Remove Directed Edge')
+    print('4 b iii -------------------- Remove Directed Edge')
     graph.removeDirectedEdge('a', 'b')
     print(graph)
 
-    print('3 a iv -------------------- Get All Nodes')
+    print('4 b iv -------------------- Get All Nodes')
     print(graph.getAllNodes())
     print()
