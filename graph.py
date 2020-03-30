@@ -2,8 +2,8 @@
 class Graph:
     """
     {
-       'a': {'b': 1, 'c': 3},
-       'c': {'a': 3},
+       'a': {'b': 1, 'c': 1},
+       'c': {'a': 1},
        'b': {'a': 1}
     }
     """
@@ -35,6 +35,7 @@ class Graph:
         for node, connections in self.nodes.items():
             s += '{}:  {}\n'.format(str(node), connections)
         return s
+
 
 if __name__ == "__main__":
     graph = Graph()
