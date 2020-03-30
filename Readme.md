@@ -23,8 +23,8 @@
         <p align="center">
         <img src="./images/part1/graphSearchImg.png" width="100%" height="100%">
        </p>
+       <p>Graph Representation and tracing paths:</p>
        <p align="center">
-       Graph Representation and tracing paths:
         <img src="./images/part1/graphPath.PNG" width="100%" height="100%">
     </li>
     <li>3 h:<br> Uncomment the recursive call lines in 
