@@ -11,24 +11,24 @@
   <ol>
     <li>3 a:<br> Run using <code>python3 graph.py</code><br>
         <p align="center">
-        <img src="graphpyImg.png" width="100%" height="100%">
+        <img src="./images/part1/graphpyImg.png" width="100%" height="100%">
        </p><br>
     </li>
     <li>3 b, 3c:<br> Run using <code>python3 main.py</code><br>
         <p align="center">
-        <img src="main3bc.png" width="100%" height="100%">
+        <img src="./images/part1/main3bc.png" width="100%" height="100%">
        </p><br>
     </li>
     <li>3 d to 3i, except 3h:<br> Run using <code>python3 graphSearch.py</code><br>
         <p align="center">
-        <img src="graphSearchpyImg.png" width="100%" height="100%">
+        <img src="./images/part1/graphSearchpyImg.png" width="100%" height="100%">
        </p><br>
     </li>
     <li>3 h:<br> Uncomment the recursive call lines in 
         <a href="https://github.com/KandarpAjvalia/cs435-project2/blob/master/graphSearch.py">graphSearch.py</a> 
         <br>Run using <code>python3 graphSearch.py</code><br>
         <p align="center">
-        <img src="recursionError3h.png" width="100%" height="100%">
+        <img src="./images/part1/recursionError3h.png" width="100%" height="100%">
        </p><br>
     </li>
   </ol>
