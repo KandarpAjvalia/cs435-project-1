@@ -1,6 +1,7 @@
+import sys
 import random
-from part1.graph import Graph
 
+from graph import Graph
 
 class Main:
     @staticmethod
@@ -30,12 +31,12 @@ class Main:
 
     @staticmethod
     def BFTRecLinkedList(graph):
-        from part1.graphSearch import GraphSearch
+        from graphSearch import GraphSearch
         return GraphSearch.BFTRec(graph)
 
     @staticmethod
     def BFTIterLinkedList(graph):
-        from part1.graphSearch import GraphSearch
+        from graphSearch import GraphSearch
         return GraphSearch.BFSIter(graph)
 
 
