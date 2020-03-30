@@ -1,5 +1,5 @@
 import random
-from graph import Graph
+from part1.graph import Graph
 
 
 class Main:
@@ -11,7 +11,7 @@ class Main:
             graph.addNode(num)
         random.shuffle(nums)
         for node in graph.nodes:
-            numEdges = random.randint(0, n - 1)
+            numEdges = random.randint(0, n - 1) // random.randint(1, n//2)
             random.shuffle(nums)
             for num in nums[:numEdges]:
                 if num != node:
@@ -30,12 +30,12 @@ class Main:
 
     @staticmethod
     def BFTRecLinkedList(graph):
-        from graphSearch import GraphSearch
+        from part1.graphSearch import GraphSearch
         return GraphSearch.BFTRec(graph)
 
     @staticmethod
     def BFTIterLinkedList(graph):
-        from graphSearch import GraphSearch
+        from part1.graphSearch import GraphSearch
         return GraphSearch.BFSIter(graph)
 
 

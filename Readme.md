@@ -28,7 +28,7 @@
         <img src="./images/part1/graphPath.PNG" width="100%" height="100%">
     </li>
     <li>3 h:<br> Uncomment the recursive call lines in 
-        <a href="https://github.com/KandarpAjvalia/cs435-project2/blob/master/graphSearch.py">graphSearch.py</a> 
+        <a href="https://github.com/KandarpAjvalia/cs435-project2/blob/master/part1/graphSearch.py">graphSearch.py</a> 
         <br>Run using <code>python3 graphSearch.py</code><br>
         <p align="center">
         <img src="./images/part1/recursionError3h.png" width="100%" height="100%">

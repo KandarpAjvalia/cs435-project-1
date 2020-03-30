@@ -1,4 +1,4 @@
-from main import Main
+from part1.main import Main
 
 
 class GraphSearch:
