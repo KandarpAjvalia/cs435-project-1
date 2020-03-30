@@ -25,7 +25,7 @@
        </p>
        <p align="center">
        Graph Representation and tracing paths:
-        <img src="./images/part1/graphPath.png" width="100%" height="100%">
+        <img src="./images/part1/graphPath.PNG" width="100%" height="100%">
     </li>
     <li>3 h:<br> Uncomment the recursive call lines in 
         <a href="https://github.com/KandarpAjvalia/cs435-project2/blob/master/graphSearch.py">graphSearch.py</a> 
