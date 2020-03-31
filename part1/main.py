@@ -10,7 +10,7 @@ class Main:
         for num in nums:
             graph.addNode(num)
         random.shuffle(nums)
-        for node in graph.nodes:
+        for node in graph.getAllNodes():
             numEdges = random.randint(0, n - 1) // random.randint(1, n//2)
             random.shuffle(nums)
             for num in nums[:numEdges]:

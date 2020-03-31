@@ -27,6 +27,9 @@ class Graph:
             self.nodes[first].pop(second, None)
             self.nodes[second].pop(first, None)
 
+    def getNeighbors(self, node):
+        return self.nodes[node]
+
     def getAllNodes(self):
         return set(self.nodes)
 
