@@ -28,11 +28,16 @@ class DirectedGraph:
     def getAllNodes(self):
         return set(self.nodes)
 
+    @staticmethod
+    def getNeighbors(node):
+        return
+
     def __str__(self):
         s = ''
         for node, connections in self.nodes.items():
             s += '{}:  {}\n'.format(str(node), connections)
         return s
+
 
 if __name__ == "__main__":
     graph = DirectedGraph()
