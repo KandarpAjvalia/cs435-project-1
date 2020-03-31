@@ -10,10 +10,14 @@ class Main:
         for num in nums:
             graph.addNode(num)
 
-        for node in graph.nodes:
-            for i in range(node + 1, n):
-                if random.randint(0, 1):
-                    graph.addDirectedEdge(node, i)
+        for node in graph.getAllNodes():
+            numNodes = random.randint(0, n - node)
+            numsAdded = set()
+            while len(numsAdded) != numNodes:
+                num = random.randint(node + 1, n)
+                if num not in numsAdded:
+                    numsAdded.add(num)
+                    graph.addDirectedEdge(node, num)
 
         return graph
 

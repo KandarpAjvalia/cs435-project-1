@@ -28,9 +28,8 @@ class DirectedGraph:
     def getAllNodes(self):
         return set(self.nodes)
 
-    @staticmethod
-    def getNeighbors(node):
-        return
+    def getNeighbors(self, node):
+        return self.nodes[node]
 
     def __str__(self):
         s = ''

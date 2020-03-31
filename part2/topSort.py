@@ -6,8 +6,8 @@ class TopSort:
     @staticmethod
     def getIndegrees(graph):
         indegrees = [0] * len(graph.nodes)
-        for node in graph.nodes:
-            for nestedNode in graph.nodes[node]:
+        for node in graph.getAllNodes():
+            for nestedNode in graph.getNeighbors(node):
                 indegrees[nestedNode] += 1
         return indegrees
 
@@ -23,7 +23,7 @@ class TopSort:
         while queue:
             curr = queue.pop(0)
             kahnsSorted.append(curr)
-            for node in graph.nodes[curr]:
+            for node in graph.getNeighbors(curr):
                 indegrees[node] -= 1
                 if indegrees[node] == 0:
                     queue.append(node)
@@ -32,10 +32,27 @@ class TopSort:
 
     @staticmethod
     def mDFS(graph):
-        pass
+        stackSim = []
+        visited = set()
+        for node in graph.getAllNodes():
+            if node not in visited:
+                TopSort.DFSHelper(graph, node, stackSim, visited)
+        return stackSim[::-1]
+
+    @staticmethod
+    def DFSHelper(graph, node, stackSim, visited):
+        visited.add(node)
+        for nestedNode in graph.getNeighbors(node):
+            if nestedNode not in visited:
+                TopSort.DFSHelper(graph, nestedNode, stackSim, visited)
+        stackSim.append(node)
 
 if __name__ == '__main__':
     graph = Main.createRandomDAGIter(10)
     print(graph)
-    print(TopSort.getIndegrees(graph))
+    print('4 d -------------------- Kahn\'s Algorithm on above Graph')
     print(TopSort.Kahns(graph))
+    print()
+    print('4 e -------------------- mDFS on above Graph')
+    print(TopSort.mDFS(graph))
+    print()
