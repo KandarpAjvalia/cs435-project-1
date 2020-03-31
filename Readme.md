@@ -26,12 +26,35 @@
        <p>Graph Representation and tracing paths:</p>
        <p align="center">
         <img src="./images/part1/graphPath.PNG" width="100%" height="100%">
+       </p>
     </li>
     <li>3 h:<br> Uncomment the recursive call lines in 
-        <a href="https://github.com/KandarpAjvalia/cs435-project2/blob/master/graphSearch.py">graphSearch.py</a> 
+        <a href="https://github.com/KandarpAjvalia/cs435-project2/blob/master/part1/graphSearch.py">graphSearch.py</a> 
         <br>Run using <code>python3 graphSearch.py</code><br>
         <p align="center">
         <img src="./images/part1/recursionError3h.png" width="100%" height="100%">
+       </p><br>
+    </li>
+  </ol>
+  <h4>Part 2:</h4>
+  <ol>
+    <li>4 b:<br> Run using <code>python3 directedGraph.py</code><br>
+       <p align="center">
+        <img src="./images/part2/4b.png" width="100%" height="100%">
+       </p><br>
+    </li>
+    <li>4 c:<br> Run using <code>python3 main.py</code><br>
+       <p align="center">
+        <img src="./images/part2/4c.png" width="100%" height="100%">
+       </p><br>
+    </li>
+    <li>4 d and e:<br> Run using <code>python3 topSort.py</code><br>
+       <p align="center">
+        <img src="./images/part2/topsort.png" width="100%" height="100%">
+       </p><br>
+       <p>Graph Representation and topsort algorithms:</p>
+       <p align="center">
+        <img src="./images/part2/topsortDrawing.jpg" width="100%" height="100%">
        </p><br>
     </li>
   </ol>

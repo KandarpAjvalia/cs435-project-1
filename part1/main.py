@@ -1,6 +1,6 @@
 import random
-from graph import Graph
 
+from graph import Graph
 
 class Main:
     @staticmethod
@@ -10,8 +10,8 @@ class Main:
         for num in nums:
             graph.addNode(num)
         random.shuffle(nums)
-        for node in graph.nodes:
-            numEdges = random.randint(0, n - 1)
+        for node in graph.getAllNodes():
+            numEdges = random.randint(0, n - 1) // random.randint(1, n//2)
             random.shuffle(nums)
             for num in nums[:numEdges]:
                 if num != node:

@@ -13,7 +13,7 @@ class GraphSearch:
         visited.add(start)
         if start == end:
             return True
-        for node in graph.nodes[start]:
+        for node in graph.getNeighbors(start):
             if node not in visited:
                 found = GraphSearch.DFSRec(graph, node, end, path, visited)
                 if found:
@@ -33,7 +33,7 @@ class GraphSearch:
             if curr == end:
                 return path
             visited.add(curr)
-            for node in graph.nodes[curr]:
+            for node in graph.getNeighbors(curr):
                 if node not in visited:
                     stackSim.append(node)
         return None
@@ -45,7 +45,7 @@ class GraphSearch:
         queue = []
         visited = set()
         GraphSearch.BFTRecHelper(graph, path, queue, visited)
-        for node in graph.nodes:
+        for node in graph.getAllNodes():
             if node not in visited:
                 visited.add(node)
                 queue.append(node)
@@ -58,7 +58,7 @@ class GraphSearch:
             return
         curr = queue.pop(0)
         path.append(curr)
-        for node in graph.nodes[curr]:
+        for node in graph.getNeighbors(curr):
             if node not in visited:
                 visited.add(node)
                 queue.append(node)
@@ -69,14 +69,14 @@ class GraphSearch:
         queue = []
         path = []
         visited = set()
-        for node in graph.nodes:
+        for node in graph.getAllNodes():
             if node not in visited:
                 visited.add(node)
                 queue.append(node)
                 while queue:
                     curr = queue.pop(0)
                     path.append(curr)
-                    for nestedNode in graph.nodes[curr]:
+                    for nestedNode in graph.getNeighbors(curr):
                         if nestedNode not in visited:
                             visited.add(nestedNode)
                             queue.append(nestedNode)

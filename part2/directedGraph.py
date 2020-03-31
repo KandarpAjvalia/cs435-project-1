@@ -1,10 +1,10 @@
 
-class Graph:
+class DirectedGraph:
     """
     {
-       'a': {'b': 1, 'c': 1},
-       'c': {'a': 1},
-       'b': {'a': 1}
+       'a': {'b': 1},
+       'c': {'a': 3},
+       'b': {}
     }
     """
     def __init__(self):
@@ -16,19 +16,20 @@ class Graph:
 
     def addConnection(self, first, second, weight=1):
         self.nodes[first][second] = weight
-        self.nodes[second][first] = weight
 
-    def addUndirectedEdge(self, first, second):
+    def addDirectedEdge(self, first, second):
         if first in self.nodes and second in self.nodes:
             self.addConnection(first, second)
 
-    def removeUndirectedEdge(self, first, second):
-        if first in self.nodes and second in self.nodes:
+    def removeDirectedEdge(self, first, second):
+        if first in self.nodes:
             self.nodes[first].pop(second, None)
-            self.nodes[second].pop(first, None)
 
     def getAllNodes(self):
         return set(self.nodes)
+
+    def getNeighbors(self, node):
+        return self.nodes[node]
 
     def __str__(self):
         s = ''
@@ -38,22 +39,22 @@ class Graph:
 
 
 if __name__ == "__main__":
-    graph = Graph()
+    graph = DirectedGraph()
 
     print()
-    print('3 a i -------------------- Add Nodes')
+    print('4 b i -------------------- Add Nodes')
     graph.addNode('a')
     graph.addNode('b')
     print(graph)
 
-    print('3 a ii -------------------- Add Undirected Edge')
-    graph.addUndirectedEdge('a', 'b')
+    print('4 b ii -------------------- Add Directed Edge')
+    graph.addDirectedEdge('a', 'b')
     print(graph)
 
-    print('3 a iii -------------------- Remove Undirected Edge')
-    graph.removeUndirectedEdge('a', 'b')
+    print('4 b iii -------------------- Remove Directed Edge')
+    graph.removeDirectedEdge('a', 'b')
     print(graph)
 
-    print('3 a iv -------------------- Get All Nodes')
+    print('4 b iv -------------------- Get All Nodes')
     print(graph.getAllNodes())
     print()
