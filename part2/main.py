@@ -9,13 +9,12 @@ class Main:
         nums = list(range(n))
         for num in nums:
             graph.addNode(num)
-        random.shuffle(nums)
+
         for node in graph.nodes:
-            numEdges = random.randint(0, n - 1) // random.randint(1, n//10)
-            random.shuffle(nums)
-            for num in nums[:numEdges]:
-                if num != node:
-                    graph.addDirectedEdge(node, num)
+            for i in range(node + 1, n):
+                if random.randint(0, 1):
+                    graph.addDirectedEdge(node, i)
+
         return graph
 
 
