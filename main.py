@@ -10,12 +10,14 @@ class Main:
         for num in nums:
             graph.addNode(num)
         random.shuffle(nums)
-        for node in graph.nodes:
+        for nodeVal in graph.nodes:
             numEdges = random.randint(0, n - 1)
             random.shuffle(nums)
             for num in nums[:numEdges]:
-                if num != node:
-                    graph.addUndirectedEdge(node, num)
+                if num != nodeVal:
+                    node1 = graph.getNode(nodeVal)
+                    node2 = graph.getNode(num)
+                    graph.addUndirectedEdge(node1, node2)
         return graph
 
     @staticmethod
@@ -25,7 +27,9 @@ class Main:
         for num in nums:
             linkedListGraph.addNode(num)
         for i in range(0, len(nums) - 1):
-            linkedListGraph.addUndirectedEdge(nums[i], nums[i + 1])
+            node1 = linkedListGraph.getNode(nums[i])
+            node2 = linkedListGraph.getNode(nums[i + 1])
+            linkedListGraph.addUndirectedEdge(node1, node2)
         return linkedListGraph
 
     @staticmethod

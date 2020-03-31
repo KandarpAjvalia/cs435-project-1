@@ -4,18 +4,19 @@ from main import Main
 class GraphSearch:
 
     @staticmethod
-    def DFSRec(graph, start, end, path=None, visited=None):
+    def DFSRec(start, end, path=None, visited=None):
         if visited is None:
             visited = set()
         if path is None:
             path = []
         path.append(start)
+        print(path)
         visited.add(start)
         if start == end:
             return True
-        for node in graph.nodes[start]:
+        for node in start.getNeighbors():
             if node not in visited:
-                found = GraphSearch.DFSRec(graph, node, end, path, visited)
+                found = GraphSearch.DFSRec(, end, path, visited)
                 if found:
                     return path
         return None
@@ -90,21 +91,24 @@ if __name__=='__main__':
     print(graph)
 
     print('3 d -------------------- DFS Recursive on above graph ----- Search 3--->7')
-    print(GraphSearch.DFSRec(graph, 3, 7))
+    startNode = graph.getNode(3)
+    endNode = graph.getNode(7)
+    print(startNode, endNode)
+    print(GraphSearch.DFSRec(startNode, endNode))
     print()
-    print('3 e -------------------- DFS Iterative on above graph ----- Search 3--->7')
-    print(GraphSearch.DFSIter(graph, 3, 7))
-    print()
-    print('3 f -------------------- BFT Recursive on above graph')
-    print(GraphSearch.BFTRec(graph))
-    print()
-    print('3 g -------------------- BFT Iterative on above graph')
-    print(GraphSearch.BFSIter(graph))
-    graph = Main.createLinkedList(10000)
-    print()
-    # print('3 h -------------------- BFT Recursive on LinkedList 10000 nodes')
-    # print(Main.BFTRecLinkedList(graph))
+    # print('3 e -------------------- DFS Iterative on above graph ----- Search 3--->7')
+    # print(GraphSearch.DFSIter(graph, 3, 7))
     # print()
-    print('3 i -------------------- BFT Iterative on LinkedList 10000 nodes')
-    print(Main.BFTIterLinkedList(graph))
-    print('\n')
+    # print('3 f -------------------- BFT Recursive on above graph')
+    # print(GraphSearch.BFTRec(graph))
+    # print()
+    # print('3 g -------------------- BFT Iterative on above graph')
+    # print(GraphSearch.BFSIter(graph))
+    # graph = Main.createLinkedList(10000)
+    # print()
+    # # print('3 h -------------------- BFT Recursive on LinkedList 10000 nodes')
+    # # print(Main.BFTRecLinkedList(graph))
+    # # print()
+    # print('3 i -------------------- BFT Iterative on LinkedList 10000 nodes')
+    # print(Main.BFTIterLinkedList(graph))
+    # print('\n')
