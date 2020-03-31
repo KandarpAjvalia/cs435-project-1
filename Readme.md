@@ -52,7 +52,7 @@
        <p align="center">
         <img src="./images/part2/topsort.png" width="100%" height="100%">
        </p><br>
-       <p>Graph Representation and topsort algorithms:</p>
+       <p>Graph Representation and Topological sort algorithms:</p>
        <p align="center">
         <img src="./images/part2/topsortDrawing.jpg" width="100%" height="100%">
        </p><br>
