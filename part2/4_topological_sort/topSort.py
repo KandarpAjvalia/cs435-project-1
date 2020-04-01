@@ -48,7 +48,7 @@ class TopSort:
         stackSim.append(node)
 
 if __name__ == '__main__':
-    graph = Main.createRandomDAGIter(10)
+    graph = Main.createRandomDAGIter(1000)
     print(graph)
     print('4 d -------------------- Kahn\'s Algorithm on above Graph')
     print(TopSort.Kahns(graph))
