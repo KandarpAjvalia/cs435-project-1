@@ -2,6 +2,7 @@ import random
 import math
 import heapq
 import sys
+import time
 from gridGraph import GridGraph
 
 class Main:
@@ -27,29 +28,23 @@ class Main:
                 arr[r][c] = i
                 i += 1
 
-        # alreadyAdded = set()
         for num in range(n**2):
             node = graph.getNode(num)
-
-            print('val: {},  (x,y):({}, {})'.format(node.val, node.x, node.y))
 
             neighbors = Main.getNeighbors(arr, node.x, node.y)
 
             for neighbor in neighbors:
                 if random.randint(0, 1):
-                        # \ and neighbor not in alreadyAdded:
-                    # alreadyAdded.add(neighbor)
+
                     node2 = graph.getNode(neighbor)
                     graph.addUndirectedEdge(node, node2)
-
         return graph
 
     @staticmethod
     def heuristic(node, end):
         x1, y1 = end.x, end.y
         x2, y2 = node.x, node.y
-        return math.sqrt((x1 - x2)**2 + (y1 - y2)**2)
-
+        return abs(x1 - x2) + abs(y1 - y2)
 
     @staticmethod
     def astar(graph, start, end):
@@ -63,8 +58,6 @@ class Main:
         while fScoreNodeTupleList:
             heapq.heapify(fScoreNodeTupleList)
             weightNodeTuple = heapq.heappop(fScoreNodeTupleList)
-            # print(weightNodeTuple)
-            # fScore = weightNodeTuple[0]
             curr = weightNodeTuple[1]
             visited.add(curr)
             if curr == end.val:
@@ -76,7 +69,7 @@ class Main:
                 createPath.insert(0, start.val)
                 return createPath
 
-            for node in randomGraph.getNode(curr).getNeighbors():
+            for node in graph.getNode(curr).getNeighbors():
                 if node not in allNodes:
                     allNodes.add(node)
                     fScoreNodeTupleList.append((sys.maxsize, node.val))
@@ -87,8 +80,6 @@ class Main:
                     path[node.val] = curr
                     gScores[node.val] = gScores[curr]
                     index = Main.findNode(fScoreNodeTupleList, node.val)
-                    # print('index: ', index)
-                    # print(fScoreNodeTupleList)
                     fScores[node.val] = gScores[node.val] + Main.heuristic(node, end)
                     if node not in visited:
                         fScoreNodeTupleList[index] = (gScores[node.val] + Main.heuristic(node, end), node.val)
@@ -110,6 +101,12 @@ if __name__ == '__main__':
 
     print('6 d -------------------- A* Search on above Grid Graph, Search 0 -> 8')
     startNode = randomGraph.getNode(0)
-    endNode = randomGraph.getNode(9801)
-
-    print(Main.astar(randomGraph, startNode, endNode))
+    endNode = randomGraph.getNode(9999)
+    startAstar = time.time()
+    aStarPath = Main.astar(randomGraph, startNode, endNode)
+    print(aStarPath)
+    print('\n')
+    endAstar = time.time()
+    print('7a -------------------- Edgextra Credit 1000 nodes')
+    print('time: {} seconds'.format(endAstar - startAstar))
+    print()

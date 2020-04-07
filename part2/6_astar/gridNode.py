@@ -9,7 +9,7 @@ class GridNode:
         self.neighbors.add(node)
 
     def getNeighbors(self):
-        return self.neighbors if self.neighbors else 'No Neighbors'
+        return self.neighbors
 
     def removeNeighbor(self, node):
         self.neighbors.remove(node)

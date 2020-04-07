@@ -3,7 +3,7 @@ import sys
 from weightedGraph import WeightedGraph
 import heapq
 import json
-
+import time
 
 class Main:
 
@@ -12,11 +12,11 @@ class Main:
         graph = WeightedGraph()
         for i in range(n):
             graph.addNode(i)
-
+        weightUpperbound = n**2
         for node in graph.getAllNodes():
             for i in range(n):
                 if node != i:
-                    graph.addWeightedEdge(node, i, random.randint(1, 20))
+                    graph.addWeightedEdge(node, i, random.randint(1, weightUpperbound))
 
         return graph
 
@@ -74,17 +74,23 @@ class Main:
 if __name__ == '__main__':
     print()
     print('5 d -------------------- Random Complete Weighted Graph')
-    graph = Main.createRandomCompleteWeightedGraph(6)
+    graph = Main.createRandomCompleteWeightedGraph(1000)
     print(graph)
 
     print()
+    dijkstraStart = time.time()
     print('5 e i -------------------- Djikstra on Random Complete Weighted Graph, start = 1')
     distancesFromNode = Main.dijkstras(graph, 1)
+    dijkstraEnd = time.time()
+
     print(json.dumps(distancesFromNode, indent=4, sort_keys=True))
+    print()
+    print('7a -------------------- Edgextra Credit 1000 nodes')
+    print('time: {} seconds'.format(dijkstraEnd - dijkstraStart))
 
     print()
     print('5 d -------------------- Create LinkedList')
-    linkedList = Main.createLinkedList(5)
+    linkedList = Main.createLinkedList(1000)
     print(linkedList)
 
     print()
