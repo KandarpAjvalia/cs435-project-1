@@ -36,7 +36,7 @@ class Main:
     @staticmethod
     def BFTIterLinkedList(graph):
         from graphSearch import GraphSearch
-        return GraphSearch.BFSIter(graph)
+        return GraphSearch.BFTIter(graph)
 
 
 if __name__ == "__main__":

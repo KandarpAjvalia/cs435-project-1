@@ -8,6 +8,8 @@ class GraphSearch:
         if start is None or end is None:
             return None
         graphNodes = graph.getAllNodes()
+        if start == end:
+            return []
         if start not in graphNodes or end not in graphNodes:
             return None
         path = []
@@ -105,7 +107,7 @@ if __name__=='__main__':
     print(GraphSearch.BFTRec(graph))
     print()
     print('3 g -------------------- BFT Iterative on above graph')
-    print(GraphSearch.BFSIter(graph))
+    print(GraphSearch.BFTIter(graph))
     # graph = Main.createLinkedList(10000)
     print()
     # print('3 h -------------------- BFT Recursive on LinkedList 10000 nodes')
