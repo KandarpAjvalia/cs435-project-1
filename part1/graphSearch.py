@@ -4,18 +4,25 @@ from main import Main
 class GraphSearch:
 
     @staticmethod
-    def DFSRec(graph, start, end, path=None, visited=None):
-        if visited is None:
-            visited = set()
-        if path is None:
-            path = []
+    def DFSRec(graph, start, end):
+        if start is None or end is None:
+            return None
+        graphNodes = graph.getAllNodes()
+        if start not in graphNodes or end not in graphNodes:
+            return None
+        path = []
+        visited = set()
+        return GraphSearch.DFSRecHelper(graph, start, end, path, visited)
+
+    @staticmethod
+    def DFSRecHelper(graph, start, end, path, visited):
         path.append(start)
         visited.add(start)
         if start == end:
             return True
         for node in graph.getNeighbors(start):
             if node not in visited:
-                found = GraphSearch.DFSRec(graph, node, end, path, visited)
+                found = GraphSearch.DFSRecHelper(graph, node, end, path, visited)
                 if found:
                     return path
         return None
@@ -40,7 +47,6 @@ class GraphSearch:
 
     @staticmethod
     def BFTRec(graph):
-
         path = []
         queue = []
         visited = set()
@@ -65,7 +71,7 @@ class GraphSearch:
         GraphSearch.BFTRecHelper(graph, path, queue, visited)
 
     @staticmethod
-    def BFSIter(graph):
+    def BFTIter(graph):
         queue = []
         path = []
         visited = set()
@@ -100,7 +106,7 @@ if __name__=='__main__':
     print()
     print('3 g -------------------- BFT Iterative on above graph')
     print(GraphSearch.BFSIter(graph))
-    graph = Main.createLinkedList(10000)
+    # graph = Main.createLinkedList(10000)
     print()
     # print('3 h -------------------- BFT Recursive on LinkedList 10000 nodes')
     # print(Main.BFTRecLinkedList(graph))

@@ -40,7 +40,7 @@ class Main:
         allNodes = set()
         allNodes.add(start)
         while weightNodeTupleList:
-            heapq.heapify(weightNodeTupleList)
+            # heapq.heapify(weightNodeTupleList)
             weightNodeTuple = heapq.heappop(weightNodeTupleList)
             currWeight = weightNodeTuple[0]
             curr = weightNodeTuple[1]
@@ -50,7 +50,7 @@ class Main:
             for node, weight in graph.getNeighbors(curr).items():
                 if node not in allNodes:
                     allNodes.add(node)
-                    weightNodeTupleList.append((sys.maxsize, node))
+                    heapq.heappush(weightNodeTupleList, (sys.maxsize, node))
                     valsInHeap.add(node)
 
                 if node not in valsInHeap:

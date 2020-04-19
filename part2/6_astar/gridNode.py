@@ -12,7 +12,8 @@ class GridNode:
         return self.neighbors
 
     def removeNeighbor(self, node):
-        self.neighbors.remove(node)
+        if node in self.neighbors:
+            self.neighbors.remove(node)
 
     def __str__(self):
         # s = str((self.x, self.y, self.val)) + ':  '

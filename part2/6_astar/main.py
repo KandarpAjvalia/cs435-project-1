@@ -42,12 +42,16 @@ class Main:
 
     @staticmethod
     def heuristic(node, end):
+        # using Manhattan Distance Heuristic
         x1, y1 = end.x, end.y
         x2, y2 = node.x, node.y
         return abs(x1 - x2) + abs(y1 - y2)
 
     @staticmethod
     def astar(graph, start, end):
+        # f score is the sum of g score and h score
+        # g score is the cost of current path from start to current node
+        # h score is the cost from current node to the end node
         fScoreNodeTupleList = [(0, start.val)]
         gScores = {start.val: 0}
         fScores = {start.val: Main.heuristic(start, end)}
@@ -56,7 +60,7 @@ class Main:
         visited = set()
         path = {}
         while fScoreNodeTupleList:
-            heapq.heapify(fScoreNodeTupleList)
+            # heapq.heapify(fScoreNodeTupleList)
             weightNodeTuple = heapq.heappop(fScoreNodeTupleList)
             curr = weightNodeTuple[1]
             visited.add(curr)
@@ -72,7 +76,7 @@ class Main:
             for node in graph.getNode(curr).getNeighbors():
                 if node not in allNodes:
                     allNodes.add(node)
-                    fScoreNodeTupleList.append((sys.maxsize, node.val))
+                    heapq.heappush(fScoreNodeTupleList, (sys.maxsize, node.val))
                     gScores[node.val] = sys.maxsize
                     fScores[node.val] = sys.maxsize
 
