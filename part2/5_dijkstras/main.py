@@ -40,7 +40,6 @@ class Main:
         allNodes = set()
         allNodes.add(start)
         while weightNodeTupleList:
-            # heapq.heapify(weightNodeTupleList)
             weightNodeTuple = heapq.heappop(weightNodeTupleList)
             currWeight = weightNodeTuple[0]
             curr = weightNodeTuple[1]

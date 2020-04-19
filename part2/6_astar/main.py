@@ -1,5 +1,4 @@
 import random
-import math
 import heapq
 import sys
 import time
@@ -60,7 +59,6 @@ class Main:
         visited = set()
         path = {}
         while fScoreNodeTupleList:
-            # heapq.heapify(fScoreNodeTupleList)
             weightNodeTuple = heapq.heappop(fScoreNodeTupleList)
             curr = weightNodeTuple[1]
             visited.add(curr)
